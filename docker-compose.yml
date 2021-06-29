@@ -1,0 +1,38 @@
+version: "3"
+services:
+  front:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./front
+    volumes:
+     - /app/node_modules
+     - ./front:/app
+    stdin_open: true
+
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+     - "3000:80"
+
+  back:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./back
+    volumes:
+     - /app/node_modules
+     - ./back:/app
+
+  mysql:
+    build: ./mysql
+    restart: unless-stopped
+    ports:
+     - "3306:3306"
+    volumes:
+     - ./mysql/mysql_data:/var/lib/mysql
+     - ./mysql/sql/:/docker-entrypoing-initdb.d/
+    environment:
+      MYSQL_ROOT_PASSWORD: mypassword
+      MYSQL_DATABASE: myapp
