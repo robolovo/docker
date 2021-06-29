@@ -1,0 +1,33 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "front",
+      "image": "docker-front",
+      "hostname": "front",
+      "essential": false,
+      "memory": 128
+    },
+    {
+      "name": "back",
+      "image": "docker-back",
+      "hostname": "back",
+      "essential": false,
+      "memory": 128
+    },
+    {
+      "name": "nginx",
+      "image": "docker-nginx",
+      "hostname": "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["front", "back"],
+      "memory": 128
+    }
+  ]
+}
