@@ -6,18 +6,18 @@ services:
   - docker
 
 before_install:
-  - docker build -t myapp -f ./front/Dockerfile.dev ./front
+  - docker build -t dlwnstj21/myapp -f ./front/Dockerfile.dev ./front
 
 script:
   - docker run -e CI=true myapp npm test
 
 after_success:
-  - docker build -t docker-front ./front
-  - docker build -t docker-back ./back
-  - docker build -t docker-nginx ./nginx
+  - docker build -t dlwnstj21/docker-front ./front
+  - docker build -t dlwnstj21/docker-back ./back
+  - docker build -t dlwnstj21/docker-nginx ./nginx
 
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
-  - docker push docker-front
-  - docker push docker-back
-  - docker push docker-nginx
+  - docker push dlwnstj21/docker-front
+  - docker push dlwnstj21/docker-back
+  - docker push dlwnstj21/docker-nginx
