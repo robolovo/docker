@@ -28,13 +28,17 @@ app.get('/api/values', function (req, res) {
 })
 
 app.post('/api/value', function (req, res, next) {
-    db.pool.query(`INSERT INTO lists (value) VALUES("${req.body.value}")`,
-        (err, results, fileds) => {
+    if (req.body.value === "") {
+        alert("내용을 입력해주세요.")
+    } else {
+        db.pool.query(`INSERT INTO lists (value) VALUES("${req.body.value}")`,
+                                                            (err, results, fileds) => {
             if (err)
                 return res.status(500).send(err)
             else
                 return res.json({ success: true, value: req.body.value })
         })
+    }
 })
 
 app.listen(5000, () => {
