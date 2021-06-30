@@ -29,7 +29,7 @@ app.get('/api/values', function (req, res) {
 
 app.post('/api/value', function (req, res, next) {
     if (req.body.value === "") {
-        alert("내용을 입력해주세요.")
+        return res.json({ emptyValue: true, alertMessage: "내용을 입력해주세요." })
     } else {
         db.pool.query(`INSERT INTO lists (value) VALUES("${req.body.value}")`,
                                                             (err, results, fileds) => {

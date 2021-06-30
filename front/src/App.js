@@ -39,7 +39,11 @@ function App() {
             setLists([...lists, response.data])
             setValue("");
           } else {
-            alert('값을 DB에 넣는데 실패했습니다.')
+            if (response.data.emptyValue) {
+                alert(response.data.alertMessage)
+            } else {
+                alert('값을 DB에 넣는데 실패했습니다.')
+            }
           }
         })
   }
