@@ -21,3 +21,16 @@ after_success:
   - docker push dlwnstj21/docker-front
   - docker push dlwnstj21/docker-back
   - docker push dlwnstj21/docker-nginx
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-myapp"
+  env: "Dockermyapp-env"
+  bucket_name: elasticbeanstalk-us-east-2-106683816905
+  bucket_path: "docker-myapp"
+  on:
+    branch: master
+
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY

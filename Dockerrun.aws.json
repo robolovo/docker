@@ -3,21 +3,21 @@
   "containerDefinitions": [
     {
       "name": "front",
-      "image": "docker-front",
+      "image": "dlwnstj21/docker-front",
       "hostname": "front",
       "essential": false,
       "memory": 128
     },
     {
       "name": "back",
-      "image": "docker-back",
+      "image": "dlwnstj21/docker-back",
       "hostname": "back",
       "essential": false,
       "memory": 128
     },
     {
       "name": "nginx",
-      "image": "docker-nginx",
+      "image": "dlwnstj21/docker-nginx",
       "hostname": "nginx",
       "essential": true,
       "portMappings": [
