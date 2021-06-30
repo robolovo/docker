@@ -38,7 +38,7 @@
 }
 
 .container {
-  width: 375px;
+  width: 600px;
 }
 
 form.example input {
@@ -46,7 +46,7 @@ form.example input {
   font-size: 17px;
   border: 1px solid grey;
   float: left;
-  width: 80%;
+  width: 74%;
   background: #f1f1f1;
 }
 
