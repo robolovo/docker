@@ -1,5 +1,5 @@
 {
-  "name": "nodejs_docker",
+  "name": "back",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
