@@ -58,16 +58,15 @@ function App() {
             {lists && lists.map((list, index) => (
                 <li key={index}>{list.value} </li>
             ))}
-            <br />
-            안녕하세요.
+            <br /> <br /> <br />
             <form className="example" onSubmit={submitHandler}>
               <input
                   type="text"
-                  placeholder="입력해주세요..."
+                  placeholder="내용을 입력해주세요"
                   onChange={changeHandler}
                   value={value}
               />
-              <button type="submit">확인.</button>
+              <button type="submit">확인</button>
             </form>
           </div>
         </header>
